@@ -1,0 +1,8 @@
+<div class="container">
+  <img src="assets/yt.png" alt="Logo" class="logo">
+  <h1>Welcome to My YouTube System</h1>
+  <div class="search-container">
+    <input type="text" placeholder="Search videos..." [(ngModel)]="searchQuery" (keyup.enter)="searchVideos()" class="search-input">
+    <button (click)="searchVideos()" class="search-button">Search</button>
+  </div>
+</div>

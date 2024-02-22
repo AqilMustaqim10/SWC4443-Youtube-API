@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      
+      <div class="mb-4">
+        <label for="searchInput">Search Videos:</label>
+        <div class="input-group">
+          <input type="text" id="searchInput" [(ngModel)]="query" class="form-control" placeholder="Enter search term" />
+          <div class="input-group-append">
+            <button (click)="searchVideos()" class="btn btn-outline-secondary" type="button">Search</button>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="mt-4 mb-3">Search Results for "{{ query }}"</h2>
+
+      <div class="row">
+        <div class="col-md-4" *ngFor="let video of videos">
+          <div class="card mb-4 shadow-sm">
+            <img [src]="video.snippet.thumbnails.default.url" class="card-img-top" alt="Video Thumbnail">
+            <div class="card-body">
+              <h5 class="card-title">{{ video.snippet.title }}</h5>
+              <p class="card-text">{{ video.snippet.description }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="https://www.youtube.com/watch?v={{ video.id.videoId }}" target="_blank" class="btn btn-sm btn-outline-secondary">Watch</a>
+                </div>
+                <small class="text-muted">Channel: {{ video.snippet.channelTitle }}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
